@@ -8,17 +8,18 @@ var session = require("express-session");
 var MongoStore = require("connect-mongo");
 var flash = require("connect-flash");
 var auth = require("./middlewares/auth");
+
 require("dotenv").config();
-//routes
+
 var indexRouter = require("./routes/index");
 var registerRouter = require("./routes/register");
 var articlesRouter = require("./routes/articles");
 var commentsRouter = require("./routes/comments");
 
-//connect Mongo DB
 mongoose.connect("mongodb://localhost/article", (err) => {
   console.log(err ? err : "Connected to Database");
 });
+
 var app = express();
 
 // view engine setup
